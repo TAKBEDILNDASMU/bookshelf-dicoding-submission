@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookshelf App</title>
+
+  <!-- Impor script kamu di sini -->
+  <!-- Lampirkan `defer` jika pemanggilan dilakukan dalam <head> -->
+  <script defer src="main.js"></script>
+
+  <!-- link css file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="container">
+    <div class="header">
+      <div class="header__logo">
+        <span class="header__logo--icon">📚</span>
+        <h1 class="header__logo--title">Bookshelf App</h1>
+      </div>
+      <form class="header__search" id="searchBook" data-testid="searchBookForm">
+        <span class="header__search--icon">🔍</span>
+        <input class="header__search--input" id="searchBookTitle" placeholder="Search books or author..." type="text"
+          data-testid="searchBookFormTitleInput" />
+        <button class="header__search--button" id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton">
+          search
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <main class="main container">
+    <form class="book-form" id="bookForm" data-testid="bookForm">
+      <div class="book-form__header">
+        <h2 id="formTitle" class="book-form__title">
+          <span class="book-form_title--icon">➕</span>
+          Add New Book
+        </h2>
+      </div>
+
+      <div class="book-form__field">
+        <label class="book-form__label" for="bookFormTitle">Book Title</label>
+        <input class="book-form__input" id="bookFormTitle" placeholder="Enter Book Title" type="text" required
+          data-testid="bookFormTitleInput" />
+      </div>
+
+      <div class="book-form__field">
+        <label class="book-form__label" for="bookFormAuthor">Author</label>
+        <input class="book-form__input" id="bookFormAuthor" placeholder="Enter Author Name" type="text" required
+          data-testid="bookFormAuthorInput" />
+      </div>
+
+      <div class="book-form__field">
+        <label class="book-form__label" for="bookFormYear">Year</label>
+        <input class="book-form__input" id="bookFormYear" placeholder="Enter Book Year" type="number" required
+          data-testid="bookFormYearInput" />
+      </div>
+
+      <div class="book-form__field">
+        <label class="book-form__label" for="bookFormIsComplete">Finish Reading</label>
+        <input class="book-form__input--check" id="bookFormIsComplete" type="checkbox"
+          data-testid="bookFormIsCompleteCheckbox" />
+      </div>
+
+      <div class="book-form__field book-form__field--button" id="buttonFormField">
+        <button class="book-form__submit" id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
+          <span class="book-form__btn-icon">📝</span>
+          Add Book
+        </button>
+      </div>
+
+    </form>
+
+    <section class="bookshelf-wrapper">
+      <div class="bookshelf">
+        <div class="bookshelf-header">
+          <h2 class="bookshelf__title bookshelf__unread--title">
+            <span class="bookshelf__title--icon">📖</span>
+            Unread Books
+          </h2>
+          <span class="bookshelf__count" id="unreadBookCount"></span>
+        </div>
+
+        <div class="bookshelf__list bookshelf__list--incomplete" id="incompleteBookList"
+          data-testid="incompleteBookList">
+          <!--Data from local storage goes here...-->
+        </div>
+      </div>
+
+      <div class="bookshelf">
+        <div class="bookshelf-header">
+          <h2 class="bookshelf__title bookshelf__read--title">
+            <span class="bookshelf__title--icon">✅</span>
+            Already Read
+          </h2>
+          <span class="bookshelf__count" id="readBookCount"></span>
+        </div>
+        <div class="bookshelf__list bookshelf__list--complete" id="completeBookList" data-testid="completeBookList">
+          <!--Data from local storage goes here...-->
+        </div>
+    </section>
+
+  </main>
+</body>
+
+</html>
