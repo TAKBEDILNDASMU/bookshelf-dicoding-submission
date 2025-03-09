@@ -133,7 +133,6 @@ function editBook() {
 function addBook() {
   const bookData = getFormData();
   bookData.id = generateId();
-  console.log(bookData);
 
   // Add to appropriate array
   if (bookData.isComplete) {
@@ -159,7 +158,7 @@ function getFormData() {
   return {
     title: DOM.form.title.value.trim(),
     author: DOM.form.author.value.trim(),
-    year: DOM.form.year.value.trim(),
+    year: parseInt(DOM.form.year.value.trim()),
     isComplete: DOM.form.status.checked,
   };
 }
